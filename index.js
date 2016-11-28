@@ -54,5 +54,6 @@ app.post('/get-file-size', multer({ storage: storage , limits: {fileSize: 2024*1
               path: 'uploads/436ec561793aa4dc475a88e84776b1b9',
               size: 277056 }
 	 */
-	res.send({size:req.file.size});
+	 console.log('file',req.get('host'),req.headers.origin);
+	res.send({size:req.file.size, url:req.headers.origin+'/uploads/'+req.file.originalname  });
 });
